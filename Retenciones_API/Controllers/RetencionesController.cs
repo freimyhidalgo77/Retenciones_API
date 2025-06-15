@@ -15,21 +15,21 @@ namespace Retenciones_API.Controllers
 
         private readonly RetencionContext _context;
 
-        // GET: api/Clientes
+        // GET: api/retenciones
         [HttpGet]
         public async Task<ActionResult<IEnumerable<RetencionesDTO>>> GetRetenciones()
         {
             return await retencionService.Listar(t => true);
         }
 
-        // GET: api/Clientes/5
+        // GET: api/Retenciones/5
         [HttpGet("{id}")]
         public async Task<ActionResult<RetencionesDTO>> GetRetencion(int id)
         {
             return await retencionService.Buscar(id);
         }
 
-        // PUT: api/Clientes/5
+        // PUT: api/Retenciones/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCliente(int id, RetencionesDTO retencionesDTO)
@@ -39,22 +39,22 @@ namespace Retenciones_API.Controllers
                 return BadRequest();
             }
 
-            // Actualizar el cliente
+            // Actualizar la retencion
             await retencionService.Guardar(retencionesDTO);
             return NoContent();
         }
 
-        // POST: api/Clientes
+        // POST: api/Retenciones
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Retencion>> PostCliente(RetencionesDTO retencionesDTO)
         {
             await retencionService.Guardar(retencionesDTO);
-            return CreatedAtAction("GetClientes", new { id = retencionesDTO.RetencionID }, retencionesDTO);
+            return CreatedAtAction("GetRetencion", new { id = retencionesDTO.RetencionID }, retencionesDTO);
 
         }
 
-        // DELETE: api/Clientes/5
+        // DELETE: api/Retenciones/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteRetencion(int id)
         {
@@ -66,7 +66,6 @@ namespace Retenciones_API.Controllers
         {
             return _context.retencion.Any(e => e.RetencionId == id);
         }
-
 
     }
 }
