@@ -15,7 +15,7 @@ namespace Retenciones.Data
         {
             var optionsBuilder = new DbContextOptionsBuilder<RetencionContext>();
 
-            var connectionString = "Server=tcp:cotzdb.database.windows.net,1433;Initial Catalog=CotizacionesDb;Persist Security Info=False;User ID=freimyHidalgo;Password=srt10db9&;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            var connectionString = "workstation id=freimyDbo.mssql.somee.com;packet size=4096;user id=freimyHidalgo77;pwd=srt10db9;data source=freimyDbo.mssql.somee.com;persist security info=False;initial catalog=freimyDbo;TrustServerCertificate=True;";
 
             optionsBuilder.UseSqlServer(connectionString);
 
